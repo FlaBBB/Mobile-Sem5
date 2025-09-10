@@ -12,18 +12,16 @@ void showPrimes(int start, int end) {
 
   List<int> listPrime = [3];
 
+  notPrime:
   for (int i = 5; i < end; i += 2) {
-    bool isPrime = true;
     for (int j = 0; j < listPrime.length; j++) {
       if (i ~/ 2 < listPrime[j]) break;
       if (i % listPrime[j] == 0) {
-        isPrime = false;
-        break;
+        continue notPrime;
       }
     }
-    if (isPrime) {
-      listPrime.add(i);
-      if (start <= i) printPrime(i);
-    }
+
+    listPrime.add(i);
+    if (start <= i) printPrime(i);
   }
 }
