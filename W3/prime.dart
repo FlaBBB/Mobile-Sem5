@@ -14,9 +14,11 @@ void showPrimes(int start, int end) {
 
   for (int i = 5; i < end; i += 2) {
     bool isPrime = true;
-    for (int j = 0; j < listPrime.length && isPrime; j++) {
+    for (int j = 0; j < listPrime.length; j++) {
+      if (i ~/ 2 < listPrime[j]) break;
       if (i % listPrime[j] == 0) {
         isPrime = false;
+        break;
       }
     }
     if (isPrime) {
